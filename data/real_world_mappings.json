@@ -1,0 +1,6 @@
+{
+  "coding": { "stat": "Intelligence", "xp": 150, "bonus": "Dexterity" },
+  "running": { "stat": "Stamina", "xp": 200, "bonus": "Agility" },
+  "reading": { "stat": "Intelligence", "xp": 100, "bonus": "Insight" },
+  "meditation": { "stat": "Composure", "xp": 50, "bonus": "Luck" }
+}

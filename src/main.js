@@ -1,24 +1,42 @@
 import { IndexedDBService } from './services/IndexedDBService.js';
 
-async function loadGameData() {
-    // Fetching our 'Spreadsheet' definitions
-    const statResponse = await fetch('/data/stat_definitions.json');
-    const stats = await statResponse.json();
+const INITIAL_STATS = {
+    Strength: 10,
+    Stamina: 10,
+    Agility: 10,
+    Intelligence: 10,
+    Dignity: 1,
+    Insight: 1
+};
 
+async function syncDashboard() {
+    // 1. Try to load stats from the database
+    let playerStats = await IndexedDBService.load('current_stats');
+
+    // 2. If no stats exist (First time playing), save the defaults
+    if (!playerStats) {
+        playerStats = INITIAL_STATS;
+        await IndexedDBService.save('current_stats', playerStats);
+    }
+
+    // 3. Update the DOM (Visual UI)
     const statPanel = document.getElementById('stat-panel');
-    statPanel.innerHTML = '<h3>Basic Stats</h3>';
+    statPanel.innerHTML = '<h3>Player Attributes</h3>';
 
-    // Loop through the JSON data and create HTML elements for each stat
-    Object.keys(stats.basic_stats).forEach(statName => {
-        const div = document.createElement('div');
-        div.className = 'stat-item';
-        div.innerHTML = `<span>${statName}</span> <span>10</span>`; // Default value is 10
-        statPanel.appendChild(div);
-    });
+    for (const [stat, value] of Object.entries(playerStats)) {
+        const row = document.createElement('div');
+        row.className = 'stat-row';
+        row.innerHTML = `<span>${stat}</span><span style="color:var(--gold-accent)">${value}</span>`;
+        statPanel.appendChild(row);
+    }
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
-    await IndexedDBService.init();
-    await loadGameData();
-    document.getElementById('quest-log').innerText = "Morpheus: Awaiting new habits...";
+    try {
+        await IndexedDBService.init();
+        await syncDashboard();
+        document.getElementById('quest-log').innerText = "Morpheus: System stable. Scanning for habits...";
+    } catch (e) {
+        console.error("Morpheus initialization failed:", e);
+    }
 });

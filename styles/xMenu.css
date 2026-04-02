@@ -1,0 +1,24 @@
+.quest-card {
+    background: #1a1a1a;
+    border-left: 4px solid #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: transform 0.2s;
+}
+
+.quest-card.rarity-rare { border-left-color: #1eff00; }
+.quest-card.rarity-legendary { border-left-color: #ffff00; }
+
+#complete-task-btn {
+    background: transparent;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#complete-task-btn:hover {
+    background: #ffd700;
+    color: #000;
+}
