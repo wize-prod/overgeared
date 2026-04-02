@@ -1,0 +1,8 @@
+{
+  "Normal": { "color": "#ffffff", "multiplier": 1.0, "drop_rate": 0.70 },
+  "Rare": { "color": "#1eff00", "multiplier": 3.0, "drop_rate": 0.20 },
+  "Epic": { "color": "#a335ee", "multiplier": 7.0, "drop_rate": 0.07 },
+  "Unique": { "color": "#ff8000", "multiplier": 15.0, "drop_rate": 0.02 },
+  "Legendary": { "color": "#ffff00", "multiplier": 50.0, "drop_rate": 0.009 },
+  "Myth": { "color": "#ff0000", "multiplier": 150.0, "drop_rate": 0.001 }
+}

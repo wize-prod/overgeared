@@ -1,0 +1,14 @@
+{
+  "basic_stats": {
+    "Strength": "Increases physical power and weight limit.",
+    "Stamina": "Affects health points and endurance.",
+    "Agility": "Improves reaction speed and evasion.",
+    "Intelligence": "Boosts mana and magic casting speed."
+  },
+  "hidden_stats": {
+    "Dignity": "Increases influence over NPCs and followers.",
+    "Insight": "Allows detection of hidden pieces and item details.",
+    "Composure": "Reduces the impact of status ailments/stress.",
+    "Luck": "Boosts the probability of high-tier item crafting."
+  }
+}
