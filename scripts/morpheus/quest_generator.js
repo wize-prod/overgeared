@@ -1,14 +1,11 @@
 export const QuestSystem = {
-    // Defines common quest types based on your goals
     dailyTemplates: [
-        { id: 'coding_session', title: 'Blacksmithing Practice', stat: 'Dexterity', baseXp: 100, rarity: 'Normal' },
-        { id: 'fitness_trail', title: 'Mountain Patrol', stat: 'Stamina', baseXp: 150, rarity: 'Rare' },
-        { id: 'study_block', title: 'Library Research', stat: 'Intelligence', baseXp: 120, rarity: 'Normal' }
+        { id: 1, title: "Deep Work: Coding", stat: "Intelligence", baseXp: 250, rarity: "Normal" },
+        { id: 2, title: "Mountain Ruck March", stat: "Stamina", baseXp: 500, rarity: "Rare" },
+        { id: 3, title: "Advanced Tactics Study", stat: "Insight", baseXp: 300, rarity: "Epic" }
     ],
 
-    generateDaily() {
-        // This picks a random template to present as your 'Daily Quest'
-        const index = Math.floor(Math.random() * this.dailyTemplates.length);
-        return this.dailyTemplates[index];
+    generateQuest() {
+        return this.dailyTemplates[Math.floor(Math.random() * this.dailyTemplates.length)];
     }
 };
